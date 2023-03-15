@@ -1,0 +1,6 @@
+[book]
+authors = ["keunlas"]
+language = "zh_CN"
+multilingual = false
+src = "src"
+title = "Tutorial of MDBOOK"

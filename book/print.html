@@ -165,7 +165,60 @@
 <h2 id="许可证"><a class="header" href="#许可证">许可证</a></h2>
 <p>mdBook 源代码和文档遵循 <a href="https://www.mozilla.org/MPL/2.0/">Mozilla Public License v2.0</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="安装"><a class="header" href="#安装">安装</a></h1>
+<p>安装 mdBook CLI 工具有很多种方法。 选择下述最适合您的方法。 如果您安装 mdBook 并期望其进行自动部署，请查看 <a href="%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/./%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90.html">持续集成</a> 章节以获取有关示例。 </p>
+<h2 id="预编译二进制文件"><a class="header" href="#预编译二进制文件">预编译二进制文件</a></h2>
+<p>在 <a href="https://github.com/rust-lang/mdBook/releases">Github发布页面</a> 下载，并将其所在路径添加进您的 PATH 变量中。</p>
+<h2 id="使用rust从源码开始构建"><a class="header" href="#使用rust从源码开始构建">使用Rust从源码开始构建</a></h2>
+<p>按照 <a href="https://www.rust-lang.org/tools/install">Rust安装页面</a> 先安装好 Rust 和 Cargo. 且保证 Rust 版本至少是 1.60.</p>
+<pre><code>cargo install mdbook
+</code></pre>
+<p>默认情况下会把 mdbook 安装在 ~/.cargo/bin/</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="阅读界面"><a class="header" href="#阅读界面">阅读界面</a></h1>
+<p>本章介绍如何与 mdBook 构建的图书进行交互。在这章会假设您正在阅读 mdBook 构建出来的 HTML 页面。 </p>
+<h2 id="导航栏"><a class="header" href="#导航栏">导航栏</a></h2>
+<p>There are several methods for navigating through the chapters of a book.</p>
+<p>The <strong>sidebar</strong> on the left provides a list of all chapters.
+Clicking on any of the chapter titles will load that page.</p>
+<p>The sidebar may not automatically appear if the window is too narrow, particularly on mobile displays.
+In that situation, the menu icon (three horizontal bars) at the top-left of the page can be pressed to open and close the sidebar.</p>
+<p>The <strong>arrow buttons</strong> at the bottom of the page can be used to navigate to the previous or the next chapter.</p>
+<p>The <strong>left and right arrow keys</strong> on the keyboard can be used to navigate to the previous or the next chapter.</p>
+<h2 id="顶部菜单栏"><a class="header" href="#顶部菜单栏">顶部菜单栏</a></h2>
+<p>The menu bar at the top of the page provides some icons for interacting with the book.
+The icons displayed will depend on the settings of how the book was generated.</p>
+<div class="table-wrapper"><table><thead><tr><th>Icon</th><th>Description</th></tr></thead><tbody>
+<tr><td><i class="fa fa-bars"></i></td><td>Opens and closes the chapter listing sidebar.</td></tr>
+<tr><td><i class="fa fa-paint-brush"></i></td><td>Opens a picker to choose a different color theme.</td></tr>
+<tr><td><i class="fa fa-search"></i></td><td>Opens a search bar for searching within the book.</td></tr>
+<tr><td><i class="fa fa-print"></i></td><td>Instructs the web browser to print the entire book.</td></tr>
+<tr><td><i class="fa fa-github"></i></td><td>Opens a link to the website that hosts the source code of the book.</td></tr>
+<tr><td><i class="fa fa-edit"></i></td><td>Opens a page to directly edit the source of the page you are currently reading.</td></tr>
+</tbody></table>
+</div>
+<p>Tapping the menu bar will scroll the page to the top.</p>
+<h2 id="search"><a class="header" href="#search">Search</a></h2>
+<p>Each book has a built-in search system.
+Pressing the search icon (<i class="fa fa-search"></i>) in the menu bar, or pressing the <code>S</code> key on the keyboard will open an input box for entering search terms.
+Typing some terms will show matching chapters and sections in real time.</p>
+<p>Clicking any of the results will jump to that section.
+The up and down arrow keys can be used to navigate the results, and enter will open the highlighted section.</p>
+<p>After loading a search result, the matching search terms will be highlighted in the text.
+Clicking a highlighted word or pressing the <code>Esc</code> key will remove the highlighting.</p>
+<h2 id="code-blocks"><a class="header" href="#code-blocks">Code blocks</a></h2>
+<p>mdBook books are often used for programming projects, and thus support highlighting code blocks and samples.
+Code blocks may contain several different icons for interacting with them:</p>
+<div class="table-wrapper"><table><thead><tr><th>Icon</th><th>Description</th></tr></thead><tbody>
+<tr><td><i class="fa fa-copy"></i></td><td>Copies the code block into your local clipboard, to allow pasting into another application.</td></tr>
+<tr><td><i class="fa fa-play"></i></td><td>For Rust code examples, this will execute the sample code and display the compiler output just below the example (see <a href="%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/../format/mdbook.html#rust-playground">playground</a>).</td></tr>
+<tr><td><i class="fa fa-eye"></i></td><td>For Rust code examples, this will toggle visibility of &quot;hidden&quot; lines. Sometimes, larger examples will hide lines which are not particularly relevant to what is being illustrated (see <a href="%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/../format/mdbook.html#hiding-code-lines">hiding code lines</a>).</td></tr>
+<tr><td><i class="fa fa-history"></i></td><td>For <a href="%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/../format/theme/editor.html">editable code examples</a>, this will undo any changes you have made.</td></tr>
+</tbody></table>
+</div>
+<p>Here's an example:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;Hello, World!&quot;);
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="创作书籍"><a class="header" href="#创作书籍">创作书籍</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="命令行工具"><a class="header" href="#命令行工具">命令行工具</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="init"><a class="header" href="#init">init</a></h1>

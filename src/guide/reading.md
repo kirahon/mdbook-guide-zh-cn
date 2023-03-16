@@ -1,68 +1,73 @@
 # 阅读
 
-This chapter gives an introduction on how to interact with a book produced by mdBook.
-This assumes you are reading an HTML book.
-The options and formatting will be different for other output formats such as PDF.
+本章介绍如何与 mdBook 出品的图书进行交互。
+这假定您正在阅读一本 HTML 书籍。
+其他输出格式（例如 PDF）的选项和格式会有所不同。
 
-A book is organized into *chapters*.
-Each chapter is a separate page.
-Chapters can be nested into a hierarchy of sub-chapters.
-Typically, each chapter will be organized into a series of *headings* to subdivide a chapter.
+一本书被组织成*章节*。
+每一章都是一个单独的页面。
+章节可以嵌套到子章节的层次结构中。
+通常，每一章都会组织成一系列*标题*来细分一章。
 
 ## 导航栏
 
-There are several methods for navigating through the chapters of a book.
+有几种方法可以浏览一本书的章节。
 
-The **sidebar** on the left provides a list of all chapters.
-Clicking on any of the chapter titles will load that page.
+左侧的 **边栏** 提供了所有章节的列表。
+单击任何章节标题将加载该页面。
 
-The sidebar may not automatically appear if the window is too narrow, particularly on mobile displays.
-In that situation, the menu icon (three horizontal bars) at the top-left of the page can be pressed to open and close the sidebar.
+如果窗口太窄，侧边栏可能不会自动出现，尤其是在移动显示器上。
+在这种情况下，可以按下页面左上角的菜单图标（三个水平条）来打开和关闭侧边栏。
 
-The **arrow buttons** at the bottom of the page can be used to navigate to the previous or the next chapter.
+页面底部的**箭头按钮**可用于导航到上一章或下一章。
 
-The **left and right arrow keys** on the keyboard can be used to navigate to the previous or the next chapter.
-
+键盘上的**左右箭头键**可用于导航到上一章或下一章。
+ 
 ## 顶部菜单栏
-The menu bar at the top of the page provides some icons for interacting with the book.
-The icons displayed will depend on the settings of how the book was generated.
 
-| Icon | Description |
-|------|-------------|
-| <i class="fa fa-bars"></i> | Opens and closes the chapter listing sidebar. |
-| <i class="fa fa-paint-brush"></i> | Opens a picker to choose a different color theme. |
-| <i class="fa fa-search"></i> | Opens a search bar for searching within the book. |
-| <i class="fa fa-print"></i> | Instructs the web browser to print the entire book. |
-| <i class="fa fa-github"></i> | Opens a link to the website that hosts the source code of the book. |
-| <i class="fa fa-edit"></i> | Opens a page to directly edit the source of the page you are currently reading. |
+页面顶部的菜单栏提供了一些用于与本书进行交互的图标。
+显示的图标将取决于书籍生成方式的设置。
 
-Tapping the menu bar will scroll the page to the top.
+| 图标 | 说明 |
+|------|--------------|
+| <i class="fa fa-bars"></i> | 打开和关闭章节列表侧边栏。 |
+| <i class="fa fa-paint-brush"></i> | 打开选择器以选择不同的颜色主题。 |
+| <i class="fa fa-search"></i> | 打开搜索栏以在书中进行搜索。 |
+| <i class="fa fa-print"></i> | 指示网络浏览器打印整本书。 |
+| <i class="fa fa-github"></i> | 打开指向托管本书源代码的网站的链接。 |
+| <i class="fa fa-edit"></i> | 打开一个页面可以直接编辑您当前正在阅读的页面的源代码。 |
+
+点击顶部菜单栏会将页面滚动到顶部。
+
 
 ## 搜索
 
-Each book has a built-in search system.
-Pressing the search icon (<i class="fa fa-search"></i>) in the menu bar, or pressing the `S` key on the keyboard will open an input box for entering search terms.
-Typing some terms will show matching chapters and sections in real time.
+每本书都有一个内置的搜索系统。
+按菜单栏中的搜索图标 (<i class="fa fa-search"></i>)，或按键盘上的 `S` 键将打开输入框以输入搜索词。
+输入一些术语将实时显示匹配的章节。
 
-Clicking any of the results will jump to that section.
-The up and down arrow keys can be used to navigate the results, and enter will open the highlighted section.
+单击任何结果将跳转到该部分。
+向上和向下箭头键可用于导航结果，输入将打开突出显示的部分。
 
-After loading a search result, the matching search terms will be highlighted in the text.
-Clicking a highlighted word or pressing the `Esc` key will remove the highlighting.
+加载搜索结果后，匹配的搜索词将在文本中突出显示。
+单击突出显示的单词或按 `Esc` 键将取消突出显示。
+
 
 ## 代码块
 
-mdBook books are often used for programming projects, and thus support highlighting code blocks and samples.
-Code blocks may contain several different icons for interacting with them:
+ 
 
-| Icon | Description |
-|------|-------------|
-| <i class="fa fa-copy"></i> | Copies the code block into your local clipboard, to allow pasting into another application. |
-| <i class="fa fa-play"></i> | For Rust code examples, this will execute the sample code and display the compiler output just below the example (see [playground]). |
-| <i class="fa fa-eye"></i> | For Rust code examples, this will toggle visibility of "hidden" lines. Sometimes, larger examples will hide lines which are not particularly relevant to what is being illustrated (see [hiding code lines]). |
-| <i class="fa fa-history"></i> | For [editable code examples][editor], this will undo any changes you have made. |
+mdBook 书籍通常用于编程项目，因此支持突出显示代码块和示例。
+代码块可能会包含几个不同的图标用于与代码块交互：
 
-Here's an example:
+| 图标 | 说明 |
+|------|--------------|
+| <i class="fa fa-copy"></i> | 将代码块复制到本地剪贴板，以允许粘贴到另一个应用程序。 |
+| <i class="fa fa-play"></i> | 对于 Rust 代码示例，这将执行示例代码并在示例下方显示编译器输出（请参阅 [演练场][playground]）。 |
+| <i class="fa fa-eye"></i> | 对于 Rust 代码示例，这将切换“隐藏”行的可见性。 有时，较大的示例会隐藏与所说明的内容不特别相关的行（请参阅 [隐藏代码行][hiding code lines]）。 |
+| <i class="fa fa-history"></i> | 对于 [可编辑代码行][editor]，这将撤消您所做的任何更改。 |
+
+下面是一个例子：
 
 ```rust
 println!("Hello, World!");

@@ -1,8 +1,8 @@
-# General Configuration
+# 常用配置
 
-You can configure the parameters for your book in the ***book.toml*** file.
+您可以在 ***book.toml*** 文件中为您的图书配置参数。
 
-Here is an example of what a ***book.toml*** file might look like:
+这是一个 ***book.toml*** 文件的示例：
 
 ```toml
 [book]
@@ -28,24 +28,19 @@ additional-css = ["custom.css"]
 limit-results = 15
 ```
 
-## Supported configuration options
+## 支持的配置选项
 
-It is important to note that **any** relative path specified in the
-configuration will always be taken relative from the root of the book where the
-configuration file is located.
+注意，配置中指定的**任何**相对路径将始终相对于配置文件所在的书的根目录。
 
-### General metadata
+### 元数据
 
-This is general information about your book.
+这是关于您的图书的一般信息。
 
-- **title:** The title of the book
-- **authors:** The author(s) of the book
-- **description:** A description for the book, which is added as meta
-  information in the html `<head>` of each page
-- **src:** By default, the source directory is found in the directory named
-  `src` directly under the root folder. But this is configurable with the `src`
-  key in the configuration file.
-- **language:** The main language of the book, which is used as a language attribute `<html lang="en">` for example.
+- **title:** 书名
+- **authors:** 本书的作者
+- **description:** 书籍的描述，作为元信息添加到每个页面的 html `<head>` 中
+- **src:** 默认情况下，源目录位于根文件夹下名为 src 的目录中。 但这可以通过配置文件中的 `src` 进行配置
+- **language:** 本书的主要语言，例如用作语言属性`<html lang="en">`
 
 **book.toml**
 ```toml
@@ -57,19 +52,16 @@ src = "my-src"  # the source files will be found in `root/my-src` instead of `ro
 language = "en"
 ```
 
-### Rust options
+### Rust 配置
 
-Options for the Rust language, relevant to running tests and playground
-integration.
+Rust 语言的选项，与运行测试和演练场集成相关。
 
 ```toml
 [rust]
 edition = "2015"   # the default edition for code blocks
 ```
 
-- **edition**: Rust edition to use by default for the code snippets. Default
-  is "2015". Individual code blocks can be controlled with the `edition2015`, 
-  `edition2018` or `edition2021` annotations, such as:
+- **edition**: 默认情况下用于代码片段的 Rust 版本，默认值为“2015”。 也可以使用 `edition2015`、`edition2018` 或`edition2021` 注释控制单个代码块，例如：
 
   ~~~text
   ```rust,edition2015
@@ -78,37 +70,26 @@ edition = "2015"   # the default edition for code blocks
   ```
   ~~~
 
-### Build options
+### Build 配置
 
-This controls the build process of your book.
+控制着书籍的构建过程。
 
 ```toml
 [build]
-build-dir = "book"                # the directory where the output is placed
-create-missing = true             # whether or not to create missing pages
-use-default-preprocessors = true  # use the default preprocessors
-extra-watch-dirs = []             # directories to watch for triggering builds
+build-dir = "book"                # 放置构建输出的文件的文件夹
+create-missing = true             # 是否自动创建目录中缺失的页面
+use-default-preprocessors = true  # 使用默认预处理器
+extra-watch-dirs = []             # 监视额外的可以触发构建的文件夹
 ```
 
-- **build-dir:** The directory to put the rendered book in. By default this is
-  `book/` in the book's root directory.
-  This can overridden with the `--dest-dir` CLI option.
-- **create-missing:** By default, any missing files specified in `SUMMARY.md`
-  will be created when the book is built (i.e. `create-missing = true`). If this
-  is `false` then the build process will instead exit with an error if any files
-  do not exist.
-- **use-default-preprocessors:** Disable the default preprocessors of (`links` &
-  `index`) by setting this option to `false`.
 
-  If you have the same, and/or other preprocessors declared via their table
-  of configuration, they will run instead.
+- **build-dir:** 放置渲染书籍的目录。默认情况下，这是书籍根目录中的 `book/` 。 这可以用 `--dest-dir` CLI 选项覆盖。
+- **create-missing:** 默认情况下，任何在 `SUMMARY.md` 中指定的缺失文件都将在本书构建时创建（即 `create-missing = true`）, 如果是 `false`，那么如果文件不存在，构建过程将退出并报错。
+- **use-default-preprocessors:** 通过将此选项设置为“false”来禁用（`links` &  `index`）的默认预处理器。
 
-  - For clarity, with no preprocessor configuration, the default `links` and
-    `index` will run.
-  - Setting `use-default-preprocessors = false` will disable these
-    default preprocessors from running.
-  - Adding `[preprocessor.links]`, for example, will ensure, regardless of
-    `use-default-preprocessors` that `links` it will run.
-- **extra-watch-dirs**: A list of paths to directories that will be watched in
-  the `watch` and `serve` commands. Changes to files under these directories will
-  trigger rebuilds. Useful if your book depends on files outside its `src` directory.
+   如果您有相同预处理器, 或其他通过配置表声明的预处理器，它们将替代默认预处理器运行。
+
+   - 为清楚起见，在没有预处理器配置的情况下，将运行默认的`links` &  `index`。
+   - 设置 `use-default-preprocessors = false` 将禁止默认预处理器运行。
+   - 添加 `[preprocessor.links]` 将确保，无论 `use-default-preprocessors` 怎样 `links` 它将运行。
+- **extra-watch-dirs**：在 `watch` 和 `serve` 命令中监视的目录路径列表。 更改这些目录下的文件将触发重建。 如果您的书依赖于其 `src` 目录之外的文件，则很有用。

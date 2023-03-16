@@ -1,16 +1,16 @@
 # Summary
 
-[Introduction](README.md)
+[介绍](README.md)
 
-# User Guide
+# 快速入门
 
-- [Installation](guide/installation.md)
-- [Reading Books](guide/reading.md)
-- [Creating a Book](guide/creating.md)
+- [安装](guide/installation.md)
+- [阅读](guide/reading.md)
+- [创作](guide/creating.md)
 
-# Reference Guide
+# 详细指南
 
-- [Command Line Tool](cli/README.md)
+- [命令行工具](cli/README.md)
     - [init](cli/init.md)
     - [build](cli/build.md)
     - [watch](cli/watch.md)
@@ -18,26 +18,26 @@
     - [test](cli/test.md)
     - [clean](cli/clean.md)
     - [completions](cli/completions.md)
-- [Format](format/README.md)
+- [格式](format/README.md)
     - [SUMMARY.md](format/summary.md)
-        - [Draft chapter]()
-    - [Configuration](format/configuration/README.md)
-        - [General](format/configuration/general.md)
-        - [Preprocessors](format/configuration/preprocessors.md)
-        - [Renderers](format/configuration/renderers.md)
-        - [Environment Variables](format/configuration/environment-variables.md)
-    - [Theme](format/theme/README.md)
+        - [草稿章节]()
+    - [配置](format/configuration/README.md)
+        - [常用配置](format/configuration/general.md)
+        - [预处理器](format/configuration/preprocessors.md)
+        - [渲染器](format/configuration/renderers.md)
+        - [环境变量](format/configuration/environment-variables.md)
+    - [主题](format/theme/README.md)
         - [index.hbs](format/theme/index-hbs.md)
-        - [Syntax highlighting](format/theme/syntax-highlighting.md)
-        - [Editor](format/theme/editor.md)
-    - [MathJax Support](format/mathjax.md)
-    - [mdBook-specific features](format/mdbook.md)
+        - [语法高亮](format/theme/syntax-highlighting.md)
+        - [编辑器](format/theme/editor.md)
+    - [MathJax 支持](format/mathjax.md)
+    - [mdBook 个别功能](format/mdbook.md)
     - [Markdown](format/markdown.md)
-- [Continuous Integration](continuous-integration.md)
-- [For Developers](for_developers/README.md)
-    - [Preprocessors](for_developers/preprocessors.md)
-    - [Alternative Backends](for_developers/backends.md)
+- [持续集成(CI)](continuous-integration.md)
+- [面向开发者](for_developers/README.md)
+    - [预处理器](for_developers/preprocessors.md)
+    - [可选后端](for_developers/backends.md)
 
 -----------
 
-[Contributors](misc/contributors.md)
+[贡献者](misc/contributors.md)

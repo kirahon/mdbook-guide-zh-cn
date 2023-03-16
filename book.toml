@@ -4,7 +4,7 @@ description = "从 markdown 文件创作书籍. 类似 Gitbook 但是由 Rust �
 authors = ["Mathieu David", "Michael-F-Bryan"]
 translator = "Keunlas"
 multilingua = true
-language = ["en","zh_CN"]
+#language = ["en","zh_CN"]
 
 [rust]
 edition = "2018"

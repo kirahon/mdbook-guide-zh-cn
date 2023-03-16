@@ -1,8 +1,7 @@
 # Introduction
 
-**mdBook** is a command line tool to create books with Markdown.
-It is ideal for creating product or API documentation, tutorials, course materials or anything that requires a clean,
-easily navigable and customizable presentation.
+**mdBook** 是通过 Markdown 制作书籍的命令行工具。
+它是创建产品或API文档、教程、课程材料或任何需要简洁、易于浏览和可定制的演示文档的理想选择。
 
 * Lightweight [Markdown] syntax helps you focus more on your content
 * Integrated [search] support

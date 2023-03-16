@@ -1,4 +1,4 @@
-# Reading Books
+# 阅读
 
 This chapter gives an introduction on how to interact with a book produced by mdBook.
 This assumes you are reading an HTML book.
@@ -9,7 +9,7 @@ Each chapter is a separate page.
 Chapters can be nested into a hierarchy of sub-chapters.
 Typically, each chapter will be organized into a series of *headings* to subdivide a chapter.
 
-## Navigation
+## 导航栏
 
 There are several methods for navigating through the chapters of a book.
 
@@ -23,8 +23,7 @@ The **arrow buttons** at the bottom of the page can be used to navigate to the p
 
 The **left and right arrow keys** on the keyboard can be used to navigate to the previous or the next chapter.
 
-## Top menu bar
-
+## 顶部菜单栏
 The menu bar at the top of the page provides some icons for interacting with the book.
 The icons displayed will depend on the settings of how the book was generated.
 
@@ -39,7 +38,7 @@ The icons displayed will depend on the settings of how the book was generated.
 
 Tapping the menu bar will scroll the page to the top.
 
-## Search
+## 搜索
 
 Each book has a built-in search system.
 Pressing the search icon (<i class="fa fa-search"></i>) in the menu bar, or pressing the `S` key on the keyboard will open an input box for entering search terms.
@@ -51,7 +50,7 @@ The up and down arrow keys can be used to navigate the results, and enter will o
 After loading a search result, the matching search terms will be highlighted in the text.
 Clicking a highlighted word or pressing the `Esc` key will remove the highlighting.
 
-## Code blocks
+## 代码块
 
 mdBook books are often used for programming projects, and thus support highlighting code blocks and samples.
 Code blocks may contain several different icons for interacting with them:

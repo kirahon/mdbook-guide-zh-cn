@@ -1,4 +1,4 @@
-# Introduction
+# 简介
 
 ***本书以 mdBook 官方文档为基础，在其基础上进行了翻译和修改***
 
@@ -20,7 +20,7 @@
 mdBook 被 Rust 项目所使用, [Rust 编程语言][trpl] 也是由 mdBook 所构建.
 
 [Markdown]: format/markdown.md
-[search]: guide/reading.md#search
+[search]: guide/reading.md
 [syntax highlighting]: format/theme/syntax-highlighting.md
 [theme]: format/theme/index.html
 [preprocessors]: format/configuration/preprocessors.md
@@ -29,7 +29,7 @@ mdBook 被 Rust 项目所使用, [Rust 编程语言][trpl] 也是由 mdBook 所�
 [trpl]: https://doc.rust-lang.org/book/
 [Rust code samples]: cli/test.md
 
-## Contributing
+## 贡献
 
 mdBook 是免费且开源的.  
 
@@ -47,7 +47,7 @@ mdBook 依赖社区来修复 bug 和添加特性:
 [CONTRIBUTING](https://github.com/rust-lang/mdBook/blob/master/CONTRIBUTING.md) 指南并考虑开放
 [拉取请求](https://github.com/rust-lang/mdBook/pulls)。
 
-## License
+## 许可证 License
 
 mdBook 的源码和文档遵循 
 [Mozilla Public License v2.0](https://www.mozilla.org/MPL/2.0/).

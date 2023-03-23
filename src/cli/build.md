@@ -1,22 +1,18 @@
-# The build command
+# build 命令
 
-The build command is used to render your book:
+build 命令用于渲染并构建您的书：
 
 ```bash
 mdbook build
 ```
 
-It will try to parse your `SUMMARY.md` file to understand the structure of your
-book and fetch the corresponding files. Note that files mentioned in `SUMMARY.md`
-but not present will be created.
+它将尝试解析您的 `SUMMARY.md` 文件以了解您的书的结构并获取相应的文件。 注意， `SUMMARY.md` 中提到但不存在的文件将自动创建。
 
-The rendered output will maintain the same directory structure as the source for
-convenience. Large books will therefore remain structured when rendered.
+为方便起见，渲染的输出将保持与源文件相同的目录结构。 因此，大型书籍在渲染时将保持结构化。
 
-#### Specify a directory
+#### 指定特定的文件夹
 
-The `build` command can take a directory as an argument to use as the book's
-root instead of the current working directory.
+`build` 命令可以将文件夹路径作为参数，并将此路径用作书的根目录。
 
 ```bash
 mdbook build path/to/book
@@ -24,17 +20,12 @@ mdbook build path/to/book
 
 #### --open
 
-When you use the `--open` (`-o`) flag, mdbook will open the rendered book in
-your default web browser after building it.
+当您使用 `--open` (`-o`) 标志时，`mdbook` 将在构建后在您的默认 Web 浏览器中打开渲染的书。
 
 #### --dest-dir
 
-The `--dest-dir` (`-d`) option allows you to change the output directory for the
-book. Relative paths are interpreted relative to the book's root directory. If
-not specified it will default to the value of the `build.build-dir` key in
-`book.toml`, or to `./book`.
+`--dest-dir` (`-d`) 选项允许您更改本书的输出目录。 相对路径是相对于本书的根目录进行解释的。 如果未指定，它将默认为 book.toml 中 build.build-dir 的值，或 ./book 。
 
 -------------------
 
-***Note:*** *The build command copies all files (excluding files with `.md` extension) from the source directory
-into the build directory.*
+***注意：*** *构建命令会将源目录中的所有文件（不包括扩展名为 `.md` 的文件）复制到构建目录中。*

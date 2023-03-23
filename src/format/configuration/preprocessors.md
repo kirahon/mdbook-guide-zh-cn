@@ -1,87 +1,78 @@
-# Configuring Preprocessors
+# 配置预处理器
 
-Preprocessors are extensions that can modify the raw Markdown source before it gets sent to the renderer.
+预处理器是可以在将原始 Markdown 源发送到渲染器之前对其进行修改的扩展。
 
-The following preprocessors are built-in and included by default:
+以下预处理器是内置且默认包含的：
 
-- `links`: Expands the `{{ #playground }}`, `{{ #include }}`, and `{{ #rustdoc_include }}` handlebars
-  helpers in a chapter to include the contents of a file.
-  See [Including files] for more.
-- `index`: Convert all chapter files named `README.md` into `index.md`. That is
-  to say, all `README.md` would be rendered to an index file `index.html` in the
-  rendered book.
+- `links`：扩展章节中的 `{{ #playground }}`、`{{ #include }}` 和 `{{ #rustdoc_include }}` handlebars 助手以包含文件的内容。 有关更多信息，请参见 [包含文件][Including files]。
+- `index`：将所有名为 `README.md` 的章节文件转换为 `index.md`。 也就是说，所有的 `README.md` 都会被渲染到书中的一个索引文件 `index.html` 中。
 
-The built-in preprocessors can be disabled with the [`build.use-default-preprocessors`] config option.
+可以使用 [`build.use-default-preprocessors`] 配置选项禁用内置预处理器。
 
-The community has developed several preprocessors.
-See the [Third Party Plugins] wiki page for a list of available preprocessors.
+社区已经开发了几个预处理器。 有关可用预处理器列表，请参阅 [第三方插件][Third Party Plugins] wiki 页面。
 
-For information on how to create a new preprocessor, see the [Preprocessors for Developers] chapter.
+有关如何创建新预处理器的信息，请参阅 [面向开发人员的预处理器][Preprocessors for Developers] 一章。
 
 [Including files]: ../mdbook.md#including-files
 [`build.use-default-preprocessors`]: general.md#build-options
 [Third Party Plugins]: https://github.com/rust-lang/mdBook/wiki/Third-party-plugins
 [Preprocessors for Developers]: ../../for_developers/preprocessors.md
 
-## Custom Preprocessor Configuration
+## 自定义预处理器配置
 
-Preprocessors can be added by including a `preprocessor` table in `book.toml` with the name of the preprocessor.
-For example, if you have a preprocessor called `mdbook-example`, then you can include it with:
+预处理器可以通过在 `book.toml` 中包含一个带有预处理器名称的 preprocessor 表来添加。 
+
+例如，如果你有一个名为 `mdbook-example` 的预处理器，那么你可以将它包含在：
 
 ```toml
 [preprocessor.example]
 ```
 
-With this table, mdBook will execute the `mdbook-example` preprocessor.
+使用此表，mdBook 将执行“mdbook-example”预处理器。
 
-This table can include additional key-value pairs that are specific to the preprocessor.
-For example, if our example prepocessor needed some extra configuration options:
+该表可以包含特定于预处理器的其他键值对。
+例如，如果我们的示例预处理器需要一些额外的配置选项：
 
 ```toml
 [preprocessor.example]
 some-extra-feature = true
 ```
 
-## Locking a Preprocessor dependency to a renderer
+## 将预处理器依赖项锁定到渲染器
 
-You can explicitly specify that a preprocessor should run for a renderer by
-binding the two together.
+您可以通过将两者绑定在一起来明确指定预处理器应该为哪个渲染器运行。
 
 ```toml
 [preprocessor.example]
-renderers = ["html"]  # example preprocessor only runs with the HTML renderer
+renderers = ["html"]  # example 预处理器仅与 HTML 渲染器一起运行
 ```
 
-## Provide Your Own Command
+## 提供你自己的命令
 
-By default when you add a `[preprocessor.foo]` table to your `book.toml` file,
-`mdbook` will try to invoke the `mdbook-foo` executable. If you want to use a
-different program name or pass in command-line arguments, this behaviour can
-be overridden by adding a `command` field.
+默认情况下，当您将 `[preprocessor.foo]` 表添加到 `book.toml` 文件时，`mdbook` 将尝试调用 `mdbook-foo` 可执行文件。 如果您想使用不同的程序名称或传递命令行参数，可以通过添加`command`字段来覆盖此行为。
 
 ```toml
 [preprocessor.random]
 command = "python random.py"
 ```
 
-## Require A Certain Order
+## 需要一定的顺序
 
-The order in which preprocessors are run can be controlled with the `before` and `after` fields.
-For example, suppose you want your `linenos` preprocessor to process lines that may have been `{{#include}}`d; then you want it to run after the built-in `links` preprocessor, which you can require using either the `before` or `after` field:
+预处理器的运行顺序可以通过“before”和“after”字段来控制。
+例如，假设您希望 `linenos` 预处理器处理可能已被 `{{#include}}`d 的行； 且希望它在内置的 `links` 预处理器之后运行，您可以使用 `before` 或 `after` 字段来要求它：
 
 ```toml
 [preprocessor.linenos]
 after = [ "links" ]
 ```
 
-or
+或者
 
 ```toml
 [preprocessor.links]
 before = [ "linenos" ]
 ```
 
-It would also be possible, though redundant, to specify both of the above in the same config file.
+也可以在同一个配置文件中同时指定以上两项，尽管这有些多余。
 
-Preprocessors having the same priority specified through `before` and `after` are sorted by name.
-Any infinite loops will be detected and produce an error.
+通过 `before` 和 `after` 指定的具有相同优先级的预处理器按名称排序。 且检测到死循环时，会产生错误。

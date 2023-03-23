@@ -1,38 +1,32 @@
-# The test command
+#   test 命令
 
-When writing a book, you sometimes need to automate some tests. For example,
-[The Rust Programming Book](https://doc.rust-lang.org/stable/book/) uses a lot
-of code examples that could get outdated. Therefore it is very important for
-them to be able to automatically test these code examples.
+写书时，有时需要自动化一些测试。 例如，[The Rust Programming Book](https://doc.rust-lang.org/stable/book/) 中使用了大量可能过时的代码示例。 因此，能够自动测试这些代码示例对他们来说非常重要。
 
-mdBook supports a `test` command that will run all available tests in a book. At
-the moment, only rustdoc tests are supported, but this may be expanded upon in
-the future.
+mdBook 支持 `test` 命令，该命令将运行书中所有可用的测试。 目前，仅支持 rustdoc 测试，但将来可能会扩展。
 
-#### Disable tests on a code block
+#### 取消某个代码块的测试
 
-rustdoc doesn't test code blocks which contain the `ignore` attribute:
+rustdoc 不测试包含 `ignore` 属性的代码块：
 
     ```rust,ignore
     fn main() {}
     ```
 
-rustdoc also doesn't test code blocks which specify a language other than Rust:
+rustdoc 也不测试指定除 Rust 以外的语言的代码块：
 
     ```markdown
     **Foo**: _bar_
     ```
 
-rustdoc *does* test code blocks which have no language specified:
+rustdoc *确实*测试未指定语言的代码块：
 
     ```
     This is going to cause an error!
     ```
 
-#### Specify a directory
+#### 指定特定的文件夹
 
-The `test` command can take a directory as an argument to use as the book's root
-instead of the current working directory.
+`test` 命令可以将目录作为参数用作书的根目录，而不是当前工作目录。
 
 ```bash
 mdbook test path/to/book
@@ -40,29 +34,22 @@ mdbook test path/to/book
 
 #### --library-path
 
-The `--library-path` (`-L`) option allows you to add directories to the library
-search path used by `rustdoc` when it builds and tests the examples. Multiple
-directories can be specified with multiple options (`-L foo -L bar`) or with a
-comma-delimited list (`-L foo,bar`). The path should point to the Cargo
-[build cache](https://doc.rust-lang.org/cargo/guide/build-cache.html) `deps` directory that
-contains the build output of your project. For example, if your Rust project's book is in a directory
-named `my-book`, the following command would include the crate's dependencies when running `test`:
+The `--library-path` (`-L`) option allows you to add directories to the library search path used by `rustdoc` when it builds and tests the examples. Multiple directories can be specified with multiple options (`-L foo -L bar`) or with a comma-delimited list (`-L foo,bar`). The path should point to the Cargo [build cache](https://doc.rust-lang.org/cargo/guide/build-cache.html) `deps` directory that contains the build output of your project. For example, if your Rust project's book is in a directory named `my-book`, the following command would include the crate's dependencies when running `test`:
+
+`--library-path` (`-L`) 选项允许您将目录添加为 `rustdoc` 在构建和测试示例时使用的库路径。 可以使用多个选项（`-L foo -L bar`）或逗号分隔列表（`-L foo,bar`）指定多个目录。 该路径应指向包含项目构建输出的 Cargo [构建缓存](https://doc.rust-lang.org/cargo/guide/build-cache.html) `deps` 目录。 例如，如果你的 Rust 项目的书在一个名为 my-book 的目录中，下面的命令将在运行 test 时包含 crate 的依赖项：
 
 ```shell
 mdbook test my-book -L target/debug/deps/
 ```
 
-See the `rustdoc` command-line [documentation](https://doc.rust-lang.org/rustdoc/command-line-arguments.html#-l--library-path-where-to-look-for-dependencies)
-for more information.
+请参阅 `rustdoc` 命令行 [文档](https://doc.rust-lang.org/rustdoc/command-line-arguments.html#-l--library-path-where-to-look-for-dependencies) 了解更多信息。
+
 
 #### --dest-dir
 
-The `--dest-dir` (`-d`) option allows you to change the output directory for the
-book. Relative paths are interpreted relative to the book's root directory. If
-not specified it will default to the value of the `build.build-dir` key in
-`book.toml`, or to `./book`.
+`--dest-dir` (`-d`) 选项允许您更改本书的输出目录。 相对路径是相对于本书的根目录进行解释的。 如果未指定，它将默认为 book.toml 中 build.build-dir 的值，或 ./book 。
+
 
 #### --chapter
 
-The `--chapter` (`-c`) option allows you to test a specific chapter of the
-book using the chapter name or the relative path to the chapter.
+`--chapter` (`-c`) 选项允许您使用章节名称或章节的相对路径来测试书中的特定章节。

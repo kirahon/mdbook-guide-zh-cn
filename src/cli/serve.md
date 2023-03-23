@@ -1,32 +1,26 @@
-# The serve command
+#   serve 命令
 
-The serve command is used to preview a book by serving it via HTTP at
-`localhost:3000` by default: 
+默认情况下，serve 命令用于通过 `localhost:3000` 上的 HTTP 服务来预览一本书：
 
 ```bash
 mdbook serve
 ```
 
-The `serve` command  watches the book's `src` directory for
-changes, rebuilding the book and refreshing clients for each change; this includes
-re-creating deleted files still mentioned in `SUMMARY.md`! A websocket
-connection is used to trigger the client-side refresh.
+`serve` 命令监视图书的 `src` 目录的变化，重建图书并为每次变化刷新客户端； 这包括重新创建 `SUMMARY.md` 中提到的，但已删除文件！ Websocket 连接用于触发客户端刷新。
 
-***Note:*** *The `serve` command is for testing a book's HTML output, and is not
-intended to be a complete HTTP server for a website.*
+***注意：*** *`serve` 命令用于测试书籍的 HTML 输出，并不打算成为网站的完整 HTTP 服务器。*
 
-#### Specify a directory
+#### 指定特定的文件夹
 
-The `serve` command can take a directory as an argument to use as the book's
-root instead of the current working directory.
+`serve` 命令可以将目录作为参数用作书的根目录，而不是当前工作目录。
 
 ```bash
 mdbook serve path/to/book
 ```
 
-### Server options
+### 服务器选项
 
-The `serve` hostname defaults to `localhost`, and the port defaults to `3000`. Either option can be specified on the command line:
+`serve` 主机名默认为 `localhost`，端口默认为 `3000`。 可以在命令行上指定任一选项：
 
 ```bash
 mdbook serve path/to/book -p 8000 -n 127.0.0.1 
@@ -34,23 +28,16 @@ mdbook serve path/to/book -p 8000 -n 127.0.0.1
 
 #### --open
 
-When you use the `--open` (`-o`) flag, mdbook will open the book in your
-default web browser after starting the server.
+当您使用 `--open` (`-o`) 标志时，`mdbook` 将在构建后在您的默认 Web 浏览器中打开渲染的书。
+
 
 #### --dest-dir
 
-The `--dest-dir` (`-d`) option allows you to change the output directory for the
-book. Relative paths are interpreted relative to the book's root directory. If
-not specified it will default to the value of the `build.build-dir` key in
-`book.toml`, or to `./book`.
+`--dest-dir` (`-d`) 选项允许您更改本书的输出目录。 相对路径是相对于本书的根目录进行解释的。 如果未指定，它将默认为 book.toml 中 build.build-dir 的值，或 ./book 。
 
-#### Specify exclude patterns
+#### 指定排除的文件
 
-The `serve` command will not automatically trigger a build for files listed in
-the `.gitignore` file in the book root directory. The `.gitignore` file may
-contain file patterns described in the [gitignore
-documentation](https://git-scm.com/docs/gitignore). This can be useful for
-ignoring temporary files created by some editors.
+`serve` 命令不会自动触发本书根目录中 `.gitignore` 文件中列出的文件的构建。 `.gitignore` 文件可以使用 [gitignore
+文档](https://git-scm.com/docs/gitignore) 中描述的模式。 这对于忽略某些编辑器创建的临时文件很有用。
 
-***Note:*** *Only the `.gitignore` from the book root directory is used. Global
-`$HOME/.gitignore` or `.gitignore` files in parent directories are not used.*
+_注意：仅使用书籍根目录中的 `.gitignore`。 不使用父目录中的全局 `$HOME/.gitignore` 或 `.gitignore` 文件。_

@@ -85,7 +85,7 @@ extra-watch-dirs = []             # 监视额外的可以触发构建的文件�
 
 - **build-dir:** 放置渲染书籍的目录。默认情况下，这是书籍根目录中的 `book/` 。 这可以用 `--dest-dir` CLI 选项覆盖。
 - **create-missing:** 默认情况下，任何在 `SUMMARY.md` 中指定的缺失文件都将在本书构建时创建（即 `create-missing = true`）, 如果是 `false`，那么如果文件不存在，构建过程将退出并报错。
-- **use-default-preprocessors:** 通过将此选项设置为“false”来禁用（`links` &  `index`）的默认预处理器。
+- **use-default-preprocessors:** 通过将此选项设置为“false”来禁用默认预处理器（`links` &  `index`）。
 
    如果您有相同预处理器, 或其他通过配置表声明的预处理器，它们将替代默认预处理器运行。
 
